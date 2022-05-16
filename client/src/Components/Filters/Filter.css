@@ -1,0 +1,18 @@
+.items{
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.types{
+    margin: 5px;
+    border-style: none;
+    background-color:#ffc400;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.types:hover{
+    background-color:#b38900;
+}
+

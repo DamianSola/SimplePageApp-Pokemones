@@ -1,0 +1,22 @@
+.container-card{
+    border: solid 2px;
+    border-radius: 8px;
+    background-color: rgba(255, 228, 196, 0.685);
+    padding: 5px;
+    width: 300px;
+    margin: 30px;
+}
+
+/* .container-card:hover{
+    width: 350px;
+    height: 300px;
+} */
+
+#img{
+    size: 15px;
+    max-width: 120px;
+}
+
+#img:hover{
+    max-width: 140px;
+}

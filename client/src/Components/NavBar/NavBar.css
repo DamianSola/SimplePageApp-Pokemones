@@ -1,0 +1,22 @@
+
+.logo{
+    display: flex;
+    margin-left: 5px;
+    width: 50px;
+}
+.new-pokes{
+    text-decoration: none;
+    color:#ffc400;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.new-pokes:hover{
+    color:#b38900;
+}
+
+.botones{
+    display: inline;
+    justify-content: space-between;
+}
+
+

@@ -1,0 +1,10 @@
+.number{
+    color:rgb(172, 4, 24);
+    background-color: #ffc400;
+    border-radius: 8px;
+    margin:5px
+}
+
+.number:hover{
+    background-color: #b98e00;
+}
