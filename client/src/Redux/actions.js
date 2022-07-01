@@ -65,7 +65,7 @@ const createPokemon = (info) => {
     return () => {
         axios.post("http://localhost:3001/pokemons",info)
     }
-}
+} 
 
 const allPokes = () => {
     return{

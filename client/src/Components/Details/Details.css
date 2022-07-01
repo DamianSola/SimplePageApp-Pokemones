@@ -1,12 +1,12 @@
 .container-details{
-    margin: 20%;
+    margin: 25%;
     margin-top: 40px;
     background-color: blanchedalmond;
     border: solid 3px;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
     border-radius: 10px;
-
+    width: 31rem;
 }
 
 

@@ -6,7 +6,7 @@ const Pagination = (info) =>{
     const {page, pokesPerPage,totalPokes} = info;
     const numPage = []
 
-    if(totalPokes <= Math.ceil(totalPokes/pokesPerPage)){
+    if(totalPokes <= pokesPerPage){
         return (<div></div>)
     }else {
         for(let i=0; i<= Math.ceil(totalPokes/pokesPerPage); i++ ){
