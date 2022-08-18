@@ -3,7 +3,7 @@ import axios from "axios";
 
 const getAllPokemons = () => {
     return (dispatch) => {
-        return axios("http://localhost:3001/pokemon")
+        return axios("https://pokemon-damian.herokuapp.com/pokemon")
         .then((res) => {
             dispatch({
                 type: "GET_ALL_POKEMON",
@@ -15,7 +15,7 @@ const getAllPokemons = () => {
 
 const getPokeById = (id) => {
     return (dispatch) => {
-        return axios(`http://localhost:3001/pokemon/${id}`)
+        return axios(`https://pokemon-damian.herokuapp.com/pokemon/${id}`)
         .then((res) => {
             dispatch({
                 type: "GET_POKE_BY_ID",
@@ -27,7 +27,7 @@ const getPokeById = (id) => {
 
 const getPokeByName = (name) =>{
     return (dispatch) => {
-        return axios.get(`http://localhost:3001/pokemon?name=${name}`)
+        return axios.get(`https://pokemon-damian.herokuapp.com/pokemon?name=${name}`)
         .then((res) => {
             dispatch({
                 type: "GET_POKEMON_BY_NAME",
@@ -39,7 +39,7 @@ const getPokeByName = (name) =>{
 
 const getTipos  = () => {
     return (dispatch) => {
-        return axios.get("http://localhost:3001/type")
+        return axios.get("https://pokemon-damian.herokuapp.com/type")
         .then((res => {
             dispatch({
                 type: "GET_TYPES",
@@ -63,7 +63,7 @@ const filterNewPoke = () => {
 
 const createPokemon = (info) => {
     return () => {
-        axios.post("http://localhost:3001/pokemons",info)
+        axios.post("https://pokemon-damian.herokuapp.com/pokemons",info)
     }
 } 
 
