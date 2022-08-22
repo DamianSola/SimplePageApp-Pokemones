@@ -27,7 +27,17 @@ const CreatePokemon = () => {
         if(!input.name) errors.name = "este campo es obligatorio"
         if(typeof input.life !== "number") errors.life = "debe poner un numero"
         if(typeof input.life === "number") errors.life = ""
-
+        if(typeof input.force !== "number") errors.force = "debe poner un numero"
+        if(typeof input.force === "number") errors.force = ""
+        if(typeof input.speed !== "number") errors.speed = "debe poner un numero"
+        if(typeof input.speed === "number") errors.speed = ""
+        if(typeof input.defense !== "number") errors.defense = "debe poner un numero"
+        if(typeof input.defense === "number") errors.defense = ""
+        if(typeof input.heigth !== "number") errors.heigth = "debe poner un numero"
+        if(typeof input.heigth === "number") errors.heigth = ""
+        if(typeof input.weigth !== "number") errors.weigth = "debe poner un numero"
+        if(typeof input.weigth === "number") errors.weigth = ""
+        // if(input.img.includes("pgn" || "jpg")) errors.heigth = "la direccion de imagen no es valida"
         return errors
     }
 
@@ -96,22 +106,23 @@ const CreatePokemon = () => {
 
     const handleOnSubmit = (e) =>{
         e.preventDefault()
-        if(input.name.length > 0) {
-            dispatch(createPokemon(input))
-            alert("el pokemon se creo")
-        }
-        else alert("no se creo un nuevo pokemon")
-        setInput({
-            name:"",
-            img:"",
-            heigth:"",
-            weigth:"",
-            life:"",
-            force:"",
-            speed:"",
-            defense:"",
-            tipos:[]
-        })
+        console.log(Object.keys(error))
+        // if(error) {
+        //     dispatch(createPokemon(input))
+        //     alert("el pokemon se creo")
+        // }
+        // else alert("no se creo un nuevo pokemon")
+        // setInput({
+        //     name:"",
+        //     img:"",
+        //     heigth:"",
+        //     weigth:"",
+        //     life:"",
+        //     force:"",
+        //     speed:"",
+        //     defense:"",
+        //     tipos:[]
+        // })
     }
 
 
@@ -140,23 +151,31 @@ const CreatePokemon = () => {
                 <br/>
                 <label>height: </label>
                 <input className="inputs" name="heigth"  onChange={(e)=>handleOnChange(e)} value={input.heigth}/>
-                <label>weight: </label>
+                {error.heigth && <p className="error">{error.heigth}</p>}
+                <label>weigth: </label>
                 <input className="inputs" name="weigth"  onChange={(e)=>handleOnChange(e)} value={input.weigth}/>
+                {error.weigth && <p className="error">{error.weigth}</p>}
+
                 <br/>
                 </div>
+
                 <div>                
                 <label>life: </label>
                 <input className="inputs" name="life"  onChange={(e)=>handleOnChange(e)}  value={input.life}/>
                 {error.life && <p className="error">{error.life}</p>}
                 <label>force: </label>
                 <input className="inputs" name="force"  onChange={(e)=>handleOnChange(e)}  value={input.force}/>
+                {error.force && <p className="error">{error.force}</p>}
+
                 <br/>
                 </div>
                 <div>
                 <label>speed: </label>
                 <input className="inputs" name="speed"  onChange={(e)=>handleOnChange(e)} value={input.speed}/>
+                {error.speed && <p className="error">{error.speed}</p>}
                 <label>defense: </label>
                 <input className="inputs" name="defense" onChange={(e)=>handleOnChange(e)} value={input.defense}/>
+                {error.defense && <p className="error">{error.defense}</p>}
                 <br/>
                 <input className="btn-create" type="submit" value="create"/>
                 </div>
