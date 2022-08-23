@@ -3,6 +3,7 @@ import "./CreatePokemon.css";
 import {Link} from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 import { createPokemon, getTipos } from "../../Redux/actions";
+import Card from "../PokemonCard/pokeCard"
 
 
 
@@ -21,55 +22,43 @@ const CreatePokemon = () => {
         tipos:[]
     })
 
+
+
     const validation = (input) => {
         let errors = {}
-        console.log(input)
-        if(!input.name) errors.name = "este campo es obligatorio"
-        if(typeof input.life !== "number") errors.life = "debe poner un numero"
-        if(typeof input.life === "number") errors.life = ""
-        if(typeof input.force !== "number") errors.force = "debe poner un numero"
-        if(typeof input.force === "number") errors.force = ""
-        if(typeof input.speed !== "number") errors.speed = "debe poner un numero"
-        if(typeof input.speed === "number") errors.speed = ""
-        if(typeof input.defense !== "number") errors.defense = "debe poner un numero"
-        if(typeof input.defense === "number") errors.defense = ""
-        if(typeof input.heigth !== "number") errors.heigth = "debe poner un numero"
-        if(typeof input.heigth === "number") errors.heigth = ""
-        if(typeof input.weigth !== "number") errors.weigth = "debe poner un numero"
-        if(typeof input.weigth === "number") errors.weigth = ""
-        // if(input.img.includes("pgn" || "jpg")) errors.heigth = "la direccion de imagen no es valida"
+        function isNumeric(val) {
+            return /^-?\d+$/.test(val);
+        }
+
+        if(input.name.length === 0) errors.name = "este campo es obligatorio"
+        if(!isNumeric(input.heigth) || input.heigth.length === 0) errors.heigth = "debe poner un numero";
+        if(!isNumeric(input.weigth) || input.weigth.length === 0) errors.weigth = "debe poner un numero";
+        if(!isNumeric(input.life) || input.life.length === 0) errors.life = "debe poner un numero";
+        if(!isNumeric(input.speed) || input.speed.length === 0) errors.speed = "debe poner un numero";
+        if(!isNumeric(input.force) || input.force.length === 0) errors.force = "debe poner un numero";
+        if(!isNumeric(input.defense) || input.defense.length === 0) errors.defense = "debe poner un numero";
+
         return errors
     }
 
-    // const [type, setTypes] = useState([])
 
     const [error, setError] = useState({})
     console.log(error)
 
     const {tipos} = useSelector(state => state)
-    // const tiposName = tipos
-    // console.log(input.tipos)
     const dispatch = useDispatch()
-    // console.log(tipos)
 
-    // console.log(input)
 
     const handleOnChange = (e) =>{
         let {name, value} = e.target
-        console.log(name)
-        console.log(e.target.name)
         setInput({
             ...input,
             [e.target.name]: e.target.value
         })
         setError(validation({
+            ...input,
             [name]:value
         }))
-        // if(e.target.name === "name"){
-        //     setError(validation({
-        //         [e.target.name]:e.target.value
-        //     }))
-        // }
     }
 
     useEffect(()=>{
@@ -78,18 +67,7 @@ const CreatePokemon = () => {
     
     const handleSelector = (e) => {
         let {name,value} = e.target;
-        // console.log(value)
-        // console.log(tipos)
-        // if(type.some(e => e.id === value)){
-        //     console.log("holllalaal")
-        //     setTypes(type.filter(e => e.id !== value))
-        // }else{
-        //     setTypes([
-        //         ...type,
-        //         tiposName[value-1]
-        //     ])
-        //     console.log(type)
-        // }
+     
         
         if(input.tipos.includes(value)){
             setInput({
@@ -104,25 +82,24 @@ const CreatePokemon = () => {
         }
     }
 
-    const handleOnSubmit = (e) =>{
+    const handleOnSubmit = async (e) =>{
         e.preventDefault()
-        console.log(Object.keys(error))
-        // if(error) {
-        //     dispatch(createPokemon(input))
-        //     alert("el pokemon se creo")
-        // }
-        // else alert("no se creo un nuevo pokemon")
-        // setInput({
-        //     name:"",
-        //     img:"",
-        //     heigth:"",
-        //     weigth:"",
-        //     life:"",
-        //     force:"",
-        //     speed:"",
-        //     defense:"",
-        //     tipos:[]
-        // })
+        if(Object.keys(error).length === 0) {
+            dispatch(createPokemon(input))
+            alert("el pokemon fue creado")
+        }
+        else alert("no se creo un nuevo pokemon")
+        setInput({
+            name:"",
+            img:"",
+            heigth:"",
+            weigth:"",
+            life:"",
+            force:"",
+            speed:"",
+            defense:"",
+            tipos:[]
+        })
     }
 
 
@@ -180,6 +157,9 @@ const CreatePokemon = () => {
                 <input className="btn-create" type="submit" value="create"/>
                 </div>
             </form>
+            <div className="cardPoke">
+                <Card name= {input.name}  img={input.img} tipos={input.tipos}/>
+            </div>
         </div>
     )
 }

@@ -1,11 +1,17 @@
 import React from "react";
 import "./pokeCard.css";
 import {Link} from "react-router-dom"
+import { useSelector } from "react-redux";
 
 const PokeCard = (info) =>{
-    let {name, img, tipos, id} = info
 
+    // let types = useSelector(state => state)
+    let {name, img, tipos, id} = info
+    
+    // let ty = types.filter(e => e.id.includes(tipos))
     if(tipos) tipos = tipos.map(e => e.name?e.name:e)
+
+
 
     return(
         <div className="container-card">
