@@ -22,10 +22,10 @@ const { conn } = require('./src/db.js');
 const cors = require('cors')
 const port = process.env.PORT || 3001
 
-server.use(cors())
 
 // Syncing all the models at once.
 conn.sync({ force: true }).then(() => {
+  server.use(cors())
   server.listen(process.env.PORT, () => {
     console.log("%s listening at 3000"); // eslint-disable-line no-console
   });
