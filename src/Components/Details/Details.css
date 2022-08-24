@@ -9,7 +9,16 @@
     width: 31rem;
 }
 
-
+@media screen and (max-width: 400px){
+    .container-details{
+        display: flex;
+        flex-direction: column;
+        margin:auto;
+    }
+    .cont-det-2{
+       display: block;
+    }
+}
 
 .cont-det-2{
     display: flex;
@@ -28,5 +37,6 @@
 
 #img-detail{
     max-width: 300px;
-
+    text-align: center;
+    margin: auto;
 }

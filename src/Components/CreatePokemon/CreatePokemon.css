@@ -11,7 +11,7 @@
 }
 
 .cardPoke{
-    margin:20% 0 ;
+    margin: 20% 0 ;
     justify-content: center;
 }
 
@@ -37,7 +37,7 @@
     }
 
     .cardPoke{
-        margin: 20%;
+        margin: auto;
     }
 }
 
